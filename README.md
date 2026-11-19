@@ -1,6 +1,6 @@
 # Campus Event Management
 
-CampusConnect is a college learning project built with React, Vite, Express and MongoDB. It currently runs on one computer. Uploading this code to GitHub does not deploy the working app.
+CampusConnect is a project built with React, Vite, Express and MongoDB. It currently runs on one computer. Uploading this code to GitHub does not deploy the working app.
 
 ## Features
 
@@ -56,6 +56,3 @@ Sign out and sign in again. Only someone with access to the local computer shoul
 - Review dependencies before deployment. On November 19, 2026, npm audit reported no known vulnerabilities for either lockfile. This is a point-in-time dependency check, not a full security audit. Test dependency updates before using them.
 - Never commit `.env` files, credentials, real student information, database exports or session data. Ignore rules are a precaution, not a substitute for checking staged files.
 
-## Learning note
-
-This is an AI-assisted beginner project. The code was prepared with assistance and tested locally while learning how the frontend, backend and database fit together.
