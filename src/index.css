@@ -1,0 +1,552 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+/* CampusConnect base styles. Page styles own their heading and panel colors. */
+:root {
+  font-family: 'DM Sans', Arial, sans-serif;
+  color: #182323;
+  background: #f7f8f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 320px; min-height: 100%; }
+body { display: block; padding: 0; }
+#root { width: 100%; max-width: none; min-height: 100vh; margin: 0; padding: 0; text-align: left; }
+
+/* Navy, ivory and brushed gold. Scoped rules leave status/error meanings intact. */
+:root { --campus-navy:#14263e; --campus-ivory:#f7f4ed; --campus-gold:#e7cf95; --campus-ink:#18283e; --campus-muted:#566477; --campus-rule:#dfded8; background:var(--campus-ivory); color:var(--campus-ink); }
+:root .login-page, :root .campus-page, :root .profile-page, :root .management-page { color:var(--campus-ink); background:var(--campus-ivory); }
+:root .story-panel, :root .campus-sidebar, :root .profile-sidebar, :root .management-page header { background:linear-gradient(155deg,#182e49,#102136); color:#fffaf0; }
+:root .form-panel { background:var(--campus-ivory); }
+:root .brand-mark, :root .campus-brand > span, :root .profile-brand > span { background:var(--campus-gold); color:var(--campus-navy); }
+:root .campus-sidebar nav button, :root .profile-sidebar nav > * { color:#d4dce7; }
+:root .campus-sidebar nav button.selected, :root .profile-sidebar nav .active-screen { background:var(--campus-gold); color:var(--campus-navy); font-weight:700; box-shadow:0 4px 18px #00000010; }
+:root .campus-nav-label, :root .profile-sidebar .sidebar-label, :root .campus-account small, :root .sidebar-account span { color:#b9c7d7; }
+:root .campus-side-note, :root .sidebar-note { border-color:#526075; }
+:root .campus-side-note small, :root .campus-side-note > span, :root .sidebar-note > span, :root .sidebar-note > div, :root .eyebrow, :root .sample-tag { color:var(--campus-gold); }
+:root .campus-account > span, :root .mini-avatar { background:#334b65; color:#fff2cf; }
+:root .student-welcome { background:linear-gradient(115deg,#f0e7d0,#e7edf2); border-color:#d9d9cf; }
+:root .student-welcome h2, :root .campus-heading h1, :root .campus-section-title h2, :root .event-card h2, :root .profile-heading h1, :root .identity-name h2, :root .card-title h2, :root .management-content h1, :root .management-content h2, :root .management-content h3 { color:var(--campus-ink); }
+:root .student-welcome small, :root .student-welcome p, :root .campus-heading p, :root .campus-heading small, :root .profile-heading p, :root .profile-eyebrow, :root .management-label, :root .management-note, :root .form-eyebrow, :root .form-intro { color:var(--campus-muted); }
+:root .welcome-art { border-color:#b7b8ad; }
+:root .welcome-art > span, :root .welcome-art small { color:#465b70; }
+:root .campus-primary, :root .student-welcome button, :root .login-page .sign-in, :root .profile-form-actions button[type='submit'], :root .api-status button { background:var(--campus-navy); border-color:var(--campus-navy); color:#fffaf0; box-shadow:0 4px 10px #14263e12; }
+:root .campus-primary:hover:not(:disabled), :root .login-page .sign-in:hover, :root .student-welcome button:hover { background:#27415e; }
+:root .campus-primary:disabled { background:#ebece8; color:#536277; border-color:#dedfd8; box-shadow:none; }
+:root .campus-panel, :root .student-stats section, :root .event-card, :root .profile-card, :root .identity-card { border-color:var(--campus-rule); box-shadow:0 7px 26px #14263e06; }
+:root .campus-topbar, :root .profile-topbar { background:#fffdf8; border-color:var(--campus-rule); }
+:root .student-stats strong { color:var(--campus-navy); }
+:root .student-stats span, :root .student-stats p, :root .campus-section-title p, :root .campus-empty p, :root .campus-footer, :root .profile-footer, :root .campus-disclaimer, :root .event-results, :root .event-card-body > small, :root .event-card-body > p { color:var(--campus-muted); }
+:root .event-filters button { color:#4c5d70; border-color:var(--campus-rule); }
+:root .event-filters button.selected { background:var(--campus-navy); border-color:var(--campus-navy); color:#fffaf0; }
+:root .event-art.green { background:#e8dfc7; }
+:root .event-art.peach { background:#dbe4ec; }
+:root .event-art-symbol, :root .event-art-label { color:#536b82; }
+:root .campus-date.green, :root .campus-date.peach { background:#eee8db; color:#344e68; }
+:root .event-category { color:#344e68; background:#fffdf0d9; }
+:root .campus-text-button, :root .campus-section-title > button, :root .event-details-button, :root .api-switch, :root .login-page .show-password { color:#334e6b; }
+:root .identity-banner { background:#e9e1cb; color:#435a72; }
+:root .profile-avatar { background:var(--campus-navy); color:var(--campus-gold); }
+:root .identity-name p, :root .profile-bio, :root .profile-details dt, :root .profile-details dd, :root .profile-hint, :root .management-form label, :root .management-form p, :root .management-event-list p, :root .management-event-list small, :root .checkout-card > p, :root .checkout-total dt, :root .checkout-result p, :root .field-hint { color:var(--campus-muted); }
+:root .profile-form input, :root .profile-form select, :root .profile-form textarea, :root .management-form input, :root .management-form select, :root .management-form textarea { border-color:#d6dbe0; color:var(--campus-ink); background:#fff; }
+:root .management-banner { background:#f2ead5; border-color:#e1d3ac; color:#544a32; }
+:root .checkout-result, :root .campus-notice, :root .profile-success { background:#eaf0ed; border-color:#cbd8d0; color:#31513f; }
+:root .checkout-total { border-color:var(--campus-rule); }
+:root .poster-art { background:var(--campus-gold); color:var(--campus-navy); }
+:root .event-preview { border-color:#617084; }
+:root button:focus-visible, :root input:focus-visible, :root select:focus-visible, :root textarea:focus-visible { outline:3px solid #9d7a39; outline-offset:3px; }
+:root .login-page input:focus { border-color:#8b713e; box-shadow:0 0 0 3px #c8ae7826; }
+@media(prefers-reduced-motion:no-preference) { :root button { transition:background-color .16s ease, box-shadow .16s ease; } }
+
+
+/* CampusConnect visual direction v2: plum, porcelain and lavender.
+   Presentation only. Authentication, stored data and API behavior are unchanged. */
+:root { --cc-ink:#251c36; --cc-muted:#6b6277; --cc-rule:#e5deec; --cc-plum:#30203f; --cc-accent:#6944b3; --cc-lilac:#e9ddff; --cc-paper:#f7f4fa; }
+#root { font-family:'Plus Jakarta Sans','DM Sans',Arial,sans-serif; color:var(--cc-ink); background:var(--cc-paper); }
+#root button,#root input,#root select,#root textarea { font-family:inherit; }
+#root button { touch-action:manipulation; }
+#root button:focus-visible,#root input:focus-visible,#root select:focus-visible,#root textarea:focus-visible { outline:3px solid #8a63c4; outline-offset:3px; }
+#root .signed-workspace,#root .campus-page,#root .profile-page,#root .management-page { background:var(--cc-paper);color:var(--cc-ink);font-family:inherit; }
+#root .workspace-nav { background:#261b34; box-shadow:0 5px 28px #30203f20; border-bottom:1px solid #ffffff18; }
+#root .workspace-nav-inner { max-width:1440px; min-height:88px; gap:24px; }
+#root .workspace-nav .workspace-brand { font-family:'Fraunces',Georgia,serif;font-size:29px;letter-spacing:-1.2px;font-weight:500;color:#fbf6ff; }
+#root .workspace-role { color:#cfbfdf;font-size:13px;letter-spacing:.4px; }
+#root .workspace-nav nav { gap:6px; }
+#root .workspace-nav nav button { color:#e5dbee;font-size:13px;padding:12px 15px;border-radius:24px; }
+#root .workspace-nav nav button[aria-current='page'] { background:#eadcff;color:#352147;font-weight:700;box-shadow:0 3px 16px #00000015; }
+#root .workspace-nav nav button:hover:not(:disabled):not([aria-current='page']) { background:#ffffff12; }
+#root .notification-center { background:#efe8f6 !important; color:#463756 !important; border-bottom:1px solid #dfd3e9 !important;font-size:13px;padding:12px clamp(18px,5vw,80px) !important; }
+#root .notification-center > button { background:transparent !important;color:#4c3766 !important;border:1px solid #c9b6dc !important;border-radius:22px !important;font-size:13px; }
+#root .notification-center > button::before { content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#8058b0;margin-right:9px;vertical-align:middle; }
+#root .notification-center button { color:#49315f;background:#fff;border-color:#d1c1df;border-radius:10px;min-height:42px;font-size:13px; }
+#root .notification-center #notification-list { padding:15px 0 20px; }
+#root .notification-center #notification-list h2 { font-family:'Fraunces',Georgia,serif;color:var(--cc-ink) !important;font-weight:500;font-size:30px !important;letter-spacing:-.8px; }
+#root .notification-center #notification-list h3 { color:var(--cc-ink) !important;font-size:17px; }
+#root .notification-center article { background:#fff !important;border-color:#d8cbe6 !important;border-radius:18px !important;padding:22px !important;box-shadow:0 6px 22px #30203f04; }
+#root .campus-content,#root .profile-content,#root .management-content { max-width:1240px;padding:48px clamp(20px,4vw,58px) 52px; }
+#root .campus-heading,#root .profile-heading { margin-bottom:32px; }
+#root .campus-heading h1,#root .profile-heading h1,#root .management-content h1 { font-family:'Fraunces',Georgia,serif;font-size:clamp(36px,4.1vw,57px);font-weight:500;line-height:1.09;letter-spacing:-1.9px;color:var(--cc-ink);margin-top:14px; }
+#root .campus-heading p,#root .profile-heading p,#root .management-note { color:var(--cc-muted);font-size:14px;line-height:1.8;max-width:680px; }
+#root .campus-heading small,#root .profile-eyebrow,#root .management-label { color:#806398;font-size:13px;font-weight:700;letter-spacing:2px; }
+#root .student-welcome { position:relative;isolation:isolate;background:radial-gradient(ellipse at 100% 10%,#62427c 0,transparent 56%),linear-gradient(125deg,#281b39,#49305d);border:1px solid #4a315f;border-radius:26px;padding:40px;color:#fff;min-height:300px;box-shadow:0 18px 40px #39244715; }
+#root .student-welcome::after { content:'';position:absolute;z-index:-1;width:390px;height:390px;border:1px solid #dbbfff25;border-radius:50%;right:-100px;bottom:-220px;box-shadow:0 0 0 50px #d3b4f009,0 0 0 100px #d3b4f007;pointer-events:none; }
+#root .student-welcome small { color:#d5bfe8;font-size:13px;letter-spacing:1.8px; }
+#root .student-welcome h2 { font-family:'Fraunces',Georgia,serif;font-size:clamp(35px,4vw,52px);font-weight:400;line-height:1.08;letter-spacing:-1.5px;color:#fff7ff;max-width:600px;margin-top:17px; }
+#root .student-welcome p { color:#d2c2dd;font-size:14px;line-height:1.8;max-width:360px;margin-top:18px; }
+#root .student-welcome button { background:#ecddff;color:#38224e;border:1px solid #f1e4ff;border-radius:25px;padding:14px 20px;font-size:13px;font-weight:700;gap:35px;min-height:45px;margin-top:24px; }
+#root .welcome-art { width:180px;min-width:145px;background:linear-gradient(145deg,#d6beeb20,#c39fe308);border-color:#c1a4d870;border-radius:100px 100px 18px 18px;padding:10px 25px 28px;transform:rotate(9deg); }
+#root .welcome-art > span { color:#e9d0ff;text-shadow:0 0 45px #f3daff36;font-size:115px; }
+#root .welcome-art small { color:#e9d9f7;font-size:14px;font-weight:500;letter-spacing:1px; }
+#root .student-stats { gap:18px;margin:25px 0; }
+#root .student-stats section { position:relative;padding:25px 27px;border:1px solid var(--cc-rule);border-radius:20px;background:#fff;box-shadow:0 7px 24px #3d284d04; }
+#root .student-stats span { color:#806f90;font-size:13px;letter-spacing:1px; }
+#root .student-stats strong { font-family:'Fraunces',Georgia,serif;font-size:45px;font-weight:400;color:#49315f;margin:15px 0 7px; }
+#root .student-stats p { color:var(--cc-muted);font-size:13px; }
+#root .campus-panel,#root .profile-card,#root .identity-card,#root .event-card { border:1px solid var(--cc-rule);border-radius:21px;background:#fff;box-shadow:0 8px 28px #32204005; }
+#root .campus-panel,#root .profile-card { padding:29px; }
+#root .campus-section-title h2,#root .management-grid h2,#root .checkout-card h2,#root .card-title > h2 { font-family:'Fraunces',Georgia,serif;font-size:26px;letter-spacing:-.6px;font-weight:500;color:var(--cc-ink); }
+#root .campus-section-title p,#root .campus-disclaimer,#root .profile-bio { color:var(--cc-muted);font-size:13px;line-height:1.8; }
+#root .campus-primary,#root .profile-form-actions button[type='submit'] { background:#6944a7;border-color:#6944a7;color:#fff;border-radius:24px;padding:13px 19px;min-height:44px;font-size:13px !important;font-weight:600;box-shadow:0 5px 14px #6944a71c; }
+#root .campus-primary:hover:not(:disabled),#root .profile-form-actions button[type='submit']:hover:not(:disabled) { background:#50317e;border-color:#50317e; }
+#root .campus-primary:disabled { background:#eee8f4;border-color:#ded2e9;color:#735c87;box-shadow:none; }
+#root .campus-text-button,#root .campus-section-title > button,#root .event-details-button { color:#7149a0;font-size:13px !important; }
+#root .campus-date { width:52px;height:60px;border-radius:12px;background:#efe6f8;color:#684b80; }
+#root .campus-date strong { font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:500; }
+#root .registration-row { border-color:#ece5f2;padding:22px 0;gap:18px; }
+#root .registration-info > small { color:#8a729b;font-size:13px; }
+#root .registration-info h3 { color:var(--cc-ink);font-size:15px;font-weight:700; }
+#root .registration-info p { color:var(--cc-muted);font-size:13px; }
+#root .registration-actions span { color:#426c59;font-size:13px; }
+#root .registration-actions button { color:#8c5268;font-size:13px;min-height:30px; }
+#root .event-search { border-color:#dcd0e6;border-radius:25px;padding:0 18px;max-width:520px;box-shadow:0 3px 14px #33204203; }
+#root .event-search input { height:50px;color:var(--cc-ink);font-size:14px; }
+#root .event-search > span:first-child { color:#9170ad; }
+#root .event-filters { gap:10px;margin-top:23px; }
+#root .event-filters button { min-height:42px;border-radius:24px;border-color:#ded3e8;color:#79658a;padding:10px 20px;font-size:13px; }
+#root .event-filters button.selected { background:#30203f;border-color:#30203f;color:#fff;box-shadow:0 5px 16px #30203f15; }
+#root .event-results { color:#7c6d88;font-size:13px;margin:30px 0 18px; }
+#root .events-grid { gap:25px; }
+#root .event-art { min-height:210px;padding:21px 24px;background:radial-gradient(ellipse at 90% 0%,#cfb4f3,transparent 65%),linear-gradient(145deg,#eee4ff,#c7afdd);color:#62407e; }
+#root .event-art.peach { background:radial-gradient(ellipse at 90% 0%,#efd2b8,transparent 60%),linear-gradient(140deg,#f7ebe1,#dfb8ae);color:#845347; }
+#root .event-art::after { content:'';width:220px;height:220px;border:1px solid #ffffff60;position:absolute;right:-38px;top:-55px;border-radius:50%;box-shadow:0 0 0 28px #ffffff15,0 0 0 60px #ffffff12;pointer-events:none; }
+#root .event-category { background:#ffffffe0;color:#5d476f;font-size:13px;border-radius:20px;padding:7px 12px; }
+#root .event-art-symbol { right:45px;top:24px;font-size:112px;color:inherit;opacity:.65; }
+#root .event-art-label { font-size:13px;letter-spacing:1px;right:24px;bottom:24px; }
+#root .event-art .campus-date { left:24px;bottom:22px;background:#ffffffdc;color:#4c345f; }
+#root .event-card-body { padding:26px; }
+#root .event-card-body > small { color:#887196;font-size:13px; }
+#root .event-card h2 { font-family:'Fraunces',Georgia,serif;font-size:29px;font-weight:500;line-height:1.2;color:var(--cc-ink);margin-top:12px; }
+#root .event-card-body > p,#root .event-description p,#root .event-description small { color:var(--cc-muted);font-size:13px;line-height:1.8; }
+#root .event-card-actions,#root .event-description { border-color:#ece4f2; }
+#root .campus-footer,#root .profile-footer { color:#887995;border-color:#dfd5e7;font-size:13px;line-height:1.8;margin-top:35px; }
+#root .identity-banner { height:162px;background:radial-gradient(ellipse at 85% 10%,#9063ae80,transparent 55%),linear-gradient(115deg,#352443,#614578);color:#ecdbff;padding:25px 34px; }
+#root .identity-banner > span:first-child { font-size:13px;letter-spacing:3px; }
+#root .identity-banner > span:last-child { color:#dcc1f1;font-size:105px; }
+#root .identity-body { padding:28px 34px;gap:22px; }
+#root .profile-avatar { width:88px;height:88px;background:#e1cff2;color:#4b2e63;font-family:'Fraunces',Georgia,serif;font-size:32px;margin-top:-58px;box-shadow:0 4px 18px #34234212; }
+#root .identity-name h2 { font-family:'Fraunces',Georgia,serif;font-size:31px;letter-spacing:-.8px;font-weight:500;color:var(--cc-ink); }
+#root .student-label { color:#8a729b;font-size:13px; }
+#root .identity-name p { color:var(--cc-muted);font-size:13px;line-height:1.6; }
+#root .profile-details dt { color:#8a759a;font-size:13px; }
+#root .profile-details dd { color:#483755;font-size:14px;line-height:1.7; }
+#root .profile-page .edit-profile,#root .profile-form-actions button { background:#fff;border-color:#d9cbe5;color:#6a458c;border-radius:22px;min-height:43px;padding:11px 18px;font-size:13px; }
+#root .management-grid { gap:25px;margin-top:28px; }
+#root .management-banner { color:#69527c;background:#eee6f5;border-color:#dfd1eb;border-radius:13px;font-size:13px;padding:16px 20px; }
+#root .management-form label,#root .profile-form label { color:#6a527b;font-size:13px;line-height:1.6; }
+#root .management-form input,#root .management-form select,#root .management-form textarea,#root .profile-form input,#root .profile-form select,#root .profile-form textarea { border-color:#ded3e8;background:#fcfaff;color:var(--cc-ink);border-radius:10px;padding:13px;font-size:14px;min-height:46px; }
+#root .management-form p,#root .profile-hint { color:#887595;font-size:13px;line-height:1.7; }
+#root .management-event-list article { border-color:#e8dfef; }
+#root .management-event-list h3 { color:var(--cc-ink);font-size:17px;line-height:1.5; }
+#root .management-event-list small,#root .management-event-list p { color:var(--cc-muted);font-size:13px;line-height:1.8; }
+#root .management-event-list button,#root .checkout-actions > button:not(.campus-primary) { color:#70558a;background:#faf7fd;border-color:#ddcfe8;border-radius:19px;min-height:39px;padding:10px 14px;font-size:13px; }
+#root .checkout-total { border-color:#e7ddee; }
+#root .checkout-total dt,#root .checkout-card > p { color:var(--cc-muted);font-size:14px; }
+#root .checkout-total dd { color:#604080;font-family:'Fraunces',Georgia,serif;font-size:43px; }
+#root .checkout-result { background:#f1ebf7;border-color:#dfd3e8;color:var(--cc-ink);border-radius:16px; }
+#root .checkout-result p { color:var(--cc-muted);font-size:13px; }
+#root .campus-notice,#root .profile-success { background:#e9f2ec;color:#3f6754;border-color:#cddfd3;border-radius:12px;font-size:13px; }
+#root .login-page { background:var(--cc-paper);font-family:inherit; }
+#root .story-panel { background:radial-gradient(ellipse at 0 100%,#674381 0,transparent 63%),linear-gradient(140deg,#241b31,#3c284e);padding:42px 10%;isolation:isolate; }
+#root .story-panel::after { content:'';position:absolute;width:550px;height:550px;border:1px solid #d2ade62b;border-radius:50%;bottom:-290px;right:-130px;box-shadow:0 0 0 70px #e8cfff08,0 0 0 140px #e8cfff05;z-index:-1;pointer-events:none; }
+#root .brand { font-family:'Fraunces',Georgia,serif;font-size:28px;font-weight:500;letter-spacing:-.8px; }
+#root .brand-mark { background:#e5d0ff;color:#54326c;border-radius:50%; }
+#root .story-content { padding:65px 0;max-width:520px; }
+#root .eyebrow,#root .sample-tag { color:#d2b5ed;font-size:13px; }
+#root .login-page h1 { font-family:'Fraunces',Georgia,serif;font-size:clamp(45px,5vw,74px);font-weight:400;letter-spacing:-2.7px;line-height:1.03;margin-top:27px;color:#fff6ff; }
+#root .story-content > p { color:#cdbdd9;font-size:15px;line-height:1.9;margin-top:26px; }
+#root .event-preview { border-color:#a082b84d;background:#ffffff08;border-radius:20px;padding:16px;margin-top:36px; }
+#root .poster-art { background:linear-gradient(145deg,#e8d5ff,#b995d8);color:#5f3f7d;border-radius:12px; }
+#root .orbit { border-color:#88619f; }
+#root .preview-details h2 { font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:24px;color:#f6eaff; }
+#root .preview-details p,#root .story-footer { color:#cab7d8;line-height:1.8; }
+#root .form-panel { background:var(--cc-paper);padding:40px 10%; }
+#root .demo-badge { color:#887197;font-size:13px; }
+#root .demo-badge > span { background:#8d64b4; }
+#root .login-box { max-width:400px;padding:48px 0; }
+#root .form-eyebrow { color:#9271aa;font-size:13px;letter-spacing:2px; }
+#root .login-box > h2 { font-family:'Fraunces',Georgia,serif;font-size:48px;font-weight:500;letter-spacing:-1.7px;line-height:1.1;margin-top:18px;color:var(--cc-ink); }
+#root .login-box .form-intro { color:var(--cc-muted);font-size:14px;line-height:1.8;margin-top:14px; }
+#root .login-page label { color:#4c365f;font-size:13px; }
+#root .login-page input { min-height:52px;border-color:#dbcee6;background:#fff;border-radius:12px;color:var(--cc-ink);padding:0 16px;font-size:14px; }
+#root .login-page input:focus { border-color:#986fc0;box-shadow:0 0 0 4px #986fc015; }
+#root .login-page .show-password { color:#7e5b99;height:52px;border-radius:12px; }
+#root .login-page .sign-in { background:#624096;border-color:#624096;border-radius:26px;padding:16px 21px;font-size:14px;margin-top:27px;box-shadow:0 6px 17px #62409620; }
+#root .login-page .sign-in:hover { background:#4c2f78; }
+#root .api-switch { color:#79519b;font-size:13px; }
+#root .login-box .field-hint,#root .password-label > span,#root .form-footer { color:#8b7898;line-height:1.7; }
+@media(min-width:1350px) { #root .login-page { grid-template-columns:1.08fr 1fr; } }
+@media(max-width:850px) { #root .workspace-nav-inner { gap:6px 12px;min-height:95px; } #root .workspace-nav .workspace-brand { font-size:25px; } #root .workspace-role { font-size:13px; } #root .workspace-nav nav { gap:5px;padding-bottom:12px; } #root .workspace-nav nav button { font-size:13px;padding:10px 11px; } #root .campus-content,#root .profile-content,#root .management-content { padding-top:32px; } }
+@media(max-width:700px) { #root .story-panel { padding:27px 7%; } #root .story-content { padding:32px 0 15px; } #root .login-page h1 { font-size:48px;letter-spacing:-1.7px; } #root .story-content > p { margin-top:18px;font-size:14px; } #root .form-panel { padding:25px 7%; } #root .login-box > h2 { font-size:40px; } #root .login-box { padding:32px 0; } #root .identity-body { padding:24px; } #root .identity-banner { padding:24px;height:140px; } #root .identity-name h2 { font-size:28px; } }
+@media(max-width:520px) {
+  #root .workspace-nav-inner { padding-left:16px;padding-right:16px;gap:4px 8px; }
+  #root .workspace-nav .workspace-brand { font-size:23px; } #root .workspace-role { font-size:13px;letter-spacing:0; }
+  #root .workspace-nav nav { scrollbar-width:thin; } #root .workspace-nav nav button { font-size:13px;padding:10px 9px; }
+  #root .campus-content,#root .profile-content,#root .management-content { padding:30px 18px 35px; }
+  #root .campus-heading h1,#root .profile-heading h1,#root .management-content h1 { font-size:37px;letter-spacing:-1.2px; }
+  #root .student-welcome { padding:27px 24px;min-height:295px;gap:12px; }
+  #root .student-welcome h2 { font-size:37px;letter-spacing:-1px; } #root .student-welcome p { font-size:13px;max-width:210px; }
+  #root .welcome-art { display:none; }
+  #root .student-stats { gap:9px;margin:20px 0; } #root .student-stats section { padding:17px 12px;border-radius:15px; }
+  #root .student-stats span { font-size:13px;letter-spacing:0; } #root .student-stats strong { font-size:35px;margin-top:13px; } #root .student-stats p { font-size:13px; }
+  #root .campus-panel,#root .profile-card { padding:23px 19px; } #root .campus-section-title h2 { font-size:23px; }
+  #root .campus-section-title { flex-wrap:wrap;gap:10px; } #root .campus-section-title > button { font-size:13px !important; }
+  #root .registration-row { gap:12px; } #root .registration-info { flex-basis:180px; } #root .registration-info h3 { font-size:14px; }
+  #root .registration-actions { padding-left:0; } #root .event-card-body { padding:23px; } #root .event-card h2 { font-size:27px; }
+  #root .event-filters { gap:8px; } #root .event-filters button { font-size:13px;padding:9px 14px; }
+  #root .profile-avatar { width:70px;height:70px;font-size:27px;margin-top:-48px; } #root .identity-body { gap:14px;padding:24px; }
+  #root .identity-name { flex-basis:180px; } #root .profile-page .edit-profile { margin-left:0; }
+  #root .profile-details { grid-template-columns:1fr;gap:20px; }
+  #root .checkout-total { gap:10px; } #root .checkout-total dd { font-size:34px; }
+}
+@media(prefers-reduced-motion:no-preference) { #root .event-card,#root .student-stats section { transition:transform .2s,box-shadow .2s; } #root .event-card:hover { transform:translateY(-3px);box-shadow:0 13px 32px #3f295b12; } }
+#root .registration-actions .registration-ticket {color:#684491;border:1px solid #dccce9;background:#f7f0ff;border-radius:20px;padding:8px 13px;text-decoration:none;min-height:35px;font-size:13px;margin:8px 0 0 auto;}
+#root .ticket-controls {display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:20px 0;}
+#root .ticket-controls button,#root .ticket-controls a,#root .scanner-next {border:1px solid #d8c8e5;background:#fff;color:#68478a;border-radius:23px;padding:12px 17px;min-height:44px;font:inherit;font-size:13px;cursor:pointer;text-decoration:none;}
+#root .ticket-controls .campus-primary {background:#6944a7;color:#fff;}
+#root .ticket-controls p {color:#7b658b;font-size:13px;line-height:1.8;flex-basis:100%;margin:0;}
+#root .entry-ticket {max-width:100%;border:1px solid #dccce8;background:#fff;border-radius:23px;overflow:hidden;box-shadow:0 12px 35px #30203f0a;}
+#root .ticket-header {background:#30203f;color:#eddbff;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;}
+#root .ticket-header span:first-child {font-family:'Fraunces',Georgia,serif;font-size:27px;letter-spacing:-.8px;}
+#root .ticket-header span:last-child {font-size:13px;letter-spacing:2px;}
+#root .ticket-body {display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:25px;padding:32px;}
+#root .ticket-information > small {color:#9271a8;font-size:13px;letter-spacing:1px;}
+#root .ticket-information h2 {font-family:'Fraunces',Georgia,serif;font-size:37px;line-height:1.15;font-weight:500;letter-spacing:-1px;color:#2a2038;margin:15px 0 24px;overflow-wrap:anywhere;}
+#root .ticket-information dl {display:grid;grid-template-columns:1fr 1fr;gap:23px;margin:0;}
+#root .ticket-information dl div {min-width:0;}
+#root .ticket-information dt {color:#8f799d;font-size:13px;letter-spacing:.5px;}
+#root .ticket-information dd {color:#493756;font-size:14px;line-height:1.8;margin:7px 0 0;overflow-wrap:anywhere;}
+#root .ticket-status {color:#4d6f59;background:#ecf3ed;padding:10px 14px;border-radius:10px;font-size:13px;line-height:1.7;display:inline-block;margin-top:24px;}
+#root .ticket-disclaimer {color:#7b658c;font-size:13px;line-height:1.8;}
+#root .ticket-qr {text-align:center;align-self:center;border-left:1px dashed #d6c4e4;padding-left:25px;}
+#root .ticket-qr img {width:100%;max-width:280px;height:auto;display:block;margin:auto;background:#fff;}
+#root .ticket-qr small {font-size:13px;letter-spacing:1px;color:#73588c;}
+#root .ticket-qr p {font-size:13px;color:#7f6d8b;line-height:1.8;max-width:250px;margin:14px auto;}
+#root .ticket-code {padding:21px 30px;border-top:1px dashed #d6c4e4;background:#fbf8ff;}
+#root .ticket-code span {display:block;font-size:13px;color:#8e779e;margin-bottom:8px;}
+#root .ticket-code code {display:block;font-size:13px;overflow-wrap:anywhere;color:#614775;line-height:1.8;user-select:all;}
+#root .entry-ticket footer {padding:18px 30px;font-size:13px;line-height:1.8;color:#8c7999;}
+#root .scanner-grid {display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;align-items:start;}
+#root .scanner-grid h2 {font-family:'Fraunces',Georgia,serif;font-size:27px;font-weight:500;letter-spacing:-.6px;margin:0 0 24px;}
+#root .scanner-upload {border:1px solid #d8c8e5;border-radius:14px;padding:11px 14px;font-size:13px;display:grid;gap:9px;max-width:100%;color:#6a4c85;}
+#root .scanner-upload input {font-size:13px;max-width:100%;min-width:0;}
+#root .scanner-note {font-size:13px;color:#7f698f;line-height:1.8;margin:20px 0 0;}
+#root .scanner-camera {border:1px solid #d9c9e5;border-radius:15px;background:#f6effb;padding:12px;}
+#root .scanner-camera video {width:100%;max-height:300px;object-fit:cover;border-radius:9px;background:#251a32;}
+#root .scanner-camera p {font-size:13px;color:#796387;line-height:1.7;}
+#root .scanner-result {overflow-wrap:anywhere;}
+#root .scanner-result h3 {font-family:'Fraunces',Georgia,serif;font-size:33px;font-weight:500;margin:24px 0 8px;color:#30203f;}
+#root .scanner-result h4 {font-size:17px;color:#4d365f;margin:23px 0 10px;}
+#root .scanner-result p {font-size:13px;line-height:1.8;color:#7e698e;}
+#root .scanner-student-id {font-size:13px !important;}
+#root .entry-badge {display:inline-block;padding:10px 15px;border-radius:25px;background:#eaf3ec;color:#416b54;font-size:13px;letter-spacing:1px;}
+#root .entry-badge.recorded {background:#f5eadb;color:#8a6139;}
+#root .entry-duplicate {font-weight:700;color:#8d5a40 !important;background:#fbf1e5;padding:13px;border-radius:10px;}
+#root .scanner-next {display:block;margin-top:20px;}
+@media(max-width:800px) {#root .scanner-grid {grid-template-columns:1fr;}#root .ticket-body {grid-template-columns:1fr;gap:20px;padding:26px;}#root .ticket-qr {border-left:0;border-top:1px dashed #d6c4e4;padding:24px 0 0;}#root .ticket-information h2 {font-size:33px;}}
+@media(max-width:520px) {#root .ticket-header {padding:20px;gap:12px;flex-wrap:wrap;}#root .ticket-header span:first-child {font-size:25px;}#root .ticket-header span:last-child {font-size:13px;}#root .ticket-information dl {grid-template-columns:1fr;gap:18px;}#root .ticket-body {padding:23px;}#root .ticket-code,#root .entry-ticket footer {padding:18px 23px;}#root .registration-actions .registration-ticket {margin:0;}#root .registration-actions {gap:9px;flex-wrap:wrap;}}
+@media print { @page {size:A4;margin:15mm;}body,#root,#root .signed-workspace {background:#fff !important;}#root .workspace-nav,#root .notification-center,#root .api-feedback,#root .no-print {display:none !important;}#root .ticket-page {padding:0;max-width:none;}#root .entry-ticket {box-shadow:none;break-inside:avoid;border-color:#777;}#root .ticket-header {print-color-adjust:exact;-webkit-print-color-adjust:exact;}#root .ticket-body {grid-template-columns:minmax(0,1fr) 260px;}#root .ticket-qr {border-top:0;border-left:1px dashed #ccc;padding:0 0 0 20px;}#root .ticket-qr img {width:240px;} }
+
+/* Readability update requested after first preview. */
+#root {font-size:15px;line-height:1.65;}
+#root .campus-heading small,#root .profile-eyebrow,#root .management-label,#root .form-eyebrow,#root .eyebrow {font-size:13px;letter-spacing:1.4px;}
+#root .campus-heading p,#root .profile-heading p,#root .management-note,#root .event-card-body > p,#root .event-description p,#root .registration-info p,#root .campus-disclaimer,#root .profile-bio,#root .profile-details dd,#root .student-stats p {font-size:15px;line-height:1.8;}
+#root .student-stats span,#root .event-card-body > small,#root .event-results,#root .event-results small {font-size:13px;color:#766083;}
+#root .campus-footer,#root .profile-footer,#root .form-footer,#root .login-box .field-hint {font-size:13px;color:#786484;}
+#root .notification-center {font-size:14px;}
+#root .notification-center button {font-size:14px;}
+#root .identity-name p,#root .profile-details dt,#root .management-form p,#root .profile-hint {font-size:14px;}
+#root .campus-date small {font-size:11px;letter-spacing:.5px;}
+#root .campus-content {max-width:1280px;}
+#root .workspace-nav nav button {font-size:14px;}
+#root .workspace-role {font-size:13px;}
+#root .story-content > p,#root .login-box .form-intro,#root .login-page label,#root .login-page input,#root .login-page .sign-in {font-size:15px;}
+#root .login-box .form-intro {margin-bottom:20px;}
+#root .login-box form {display:grid;gap:10px;}
+#root .preview-details p,#root .story-footer,#root .sample-tag {font-size:13px;}
+#root .ticket-information dd,#root .ticket-disclaimer,#root .ticket-qr p,#root .scanner-note,#root .scanner-result p {font-size:14px;line-height:1.8;}
+#root .ticket-information dt,#root .ticket-code span,#root .entry-ticket footer,#root .ticket-qr small {font-size:12px;color:#766083;}
+#root .ticket-code code {font-size:12px;}
+#root .scanner-result .scanner-student-id {font-size:13px !important;}
+#root .campus-heading > span {display:none;}
+@media(max-width:850px) {#root .workspace-nav nav {flex-wrap:wrap;overflow:visible;gap:6px;}#root .workspace-nav nav button {font-size:13px;min-height:43px;padding:10px 12px;}#root .workspace-role {font-size:11px;}#root .workspace-nav-inner {padding-bottom:3px;}}
+@media(max-width:520px) {#root .student-stats {grid-template-columns:1fr;}#root .student-stats section {display:grid;grid-template-columns:1fr auto;gap:5px 16px;align-items:center;padding:18px 20px;}#root .student-stats strong {grid-column:2;grid-row:1/3;margin:0;font-size:40px;}#root .student-stats span {font-size:12px;line-height:1.6;}#root .student-stats p {font-size:14px;}#root .workspace-nav .workspace-brand {font-size:26px;}#root .workspace-role {font-size:11px;}#root .campus-heading h1 {font-size:39px;}#root .student-welcome p {font-size:14px;}#root .event-art-label {font-size:13px;}}
+
+/* Alternate direction preview: cobalt, white and a graphic event-pass motif. */
+#root {--cc-ink:#13243d;--cc-muted:#51637b;--cc-rule:#dce5f0;--cc-plum:#12377c;--cc-accent:#245ee5;--cc-paper:#f2f6fc;--cc-lilac:#dce8ff;font-family:'Plus Jakarta Sans',Arial,sans-serif;background:#f2f6fc;color:#13243d;}
+#root h1,#root h2,#root h3,#root .workspace-nav .workspace-brand,#root .brand,#root .student-stats strong,#root .ticket-header span:first-child,#root .identity-name h2,#root .checkout-total dd {font-family:'Plus Jakarta Sans',Arial,sans-serif;font-weight:700;}
+#root .workspace-nav {background:#fff;box-shadow:0 2px 18px #17356b08;border-bottom:1px solid #dce5f0;}
+#root .workspace-nav .workspace-brand {color:#153568;font-size:25px;font-weight:800;letter-spacing:-1px;}
+#root .workspace-role {color:#60728d;}
+#root .workspace-nav nav button {color:#4f6381;border-radius:9px;}
+#root .workspace-nav nav button[aria-current='page'] {background:#245ee5;color:#fff;box-shadow:0 4px 12px #245ee51e;}
+#root .workspace-nav nav button:hover:not(:disabled):not([aria-current='page']) {background:#edf3ff;}
+#root .notification-center {background:#e9f0fc !important;color:#315283 !important;border-color:#d5e0f2 !important;}
+#root .notification-center > button {background:#fff !important;color:#315283 !important;border-color:#c3d3ed !important;border-radius:8px !important;}
+#root .notification-center > button::before {background:#3770e8;}
+#root .campus-content,#root .profile-content,#root .management-content {padding-top:42px;}
+#root .campus-heading h1,#root .profile-heading h1,#root .management-content h1 {font-size:clamp(35px,4vw,53px);line-height:1.14;letter-spacing:-2px;color:#152d50;}
+#root .campus-heading small,#root .profile-eyebrow,#root .management-label,#root .form-eyebrow {color:#376bd0;}
+#root .campus-heading p,#root .profile-heading p,#root .management-note {color:#566b88;}
+#root .student-welcome {background:linear-gradient(115deg,#12367c,#205bd0);border:0;border-radius:14px;padding:40px;box-shadow:0 15px 35px #2353a61a;}
+#root .student-welcome::after {width:360px;height:520px;border-radius:0;right:-70px;bottom:-170px;transform:rotate(28deg);border:1px solid #ffffff20;box-shadow:0 0 0 45px #ffffff07,0 0 0 90px #ffffff05;}
+#root .student-welcome h2 {font-family:inherit;font-size:clamp(34px,4vw,49px);font-weight:700;line-height:1.13;letter-spacing:-1.8px;color:#fff;}
+#root .student-welcome small {color:#bcd6ff;}
+#root .student-welcome p {color:#d1e0fa;}
+#root .student-welcome button {border-radius:9px;background:#fff;border-color:#fff;color:#19438b;min-height:48px;}
+#root .welcome-art {position:relative;border:1px solid #bfd5ff80;border-radius:13px;background:#ffffff12;transform:rotate(8deg);width:190px;padding:17px 23px 22px;text-align:left;}
+#root .welcome-art::before {content:'ADMIT ONE';font-size:12px;color:#c9ddff;letter-spacing:2px;display:block;border-bottom:1px dashed #b9d2ff77;padding-bottom:12px;}
+#root .welcome-art > span {font-family:inherit;font-size:80px;line-height:1.2;color:#fff;font-weight:700;letter-spacing:-6px;text-shadow:none;}
+#root .welcome-art small {font-size:14px;color:#d7e5ff;letter-spacing:.5px;}
+#root .student-stats section,#root .campus-panel,#root .profile-card,#root .identity-card,#root .event-card {border-color:#dce5f0;border-radius:13px;box-shadow:0 5px 20px #19365f04;}
+#root .student-stats strong {color:#245ee5;font-family:inherit;letter-spacing:-2px;}
+#root .student-stats span,#root .student-stats p {color:#5e7290;}
+#root .campus-section-title h2,#root .management-grid h2,#root .card-title > h2,#root .checkout-card h2 {font-family:inherit;color:#1a355b;font-size:24px;font-weight:700;letter-spacing:-.7px;}
+#root .campus-primary,#root .profile-form-actions button[type='submit'] {background:#245ee5;border-color:#245ee5;border-radius:9px;box-shadow:0 4px 12px #245ee51a;}
+#root .campus-primary:hover:not(:disabled) {background:#174abf;border-color:#174abf;}
+#root .campus-primary:disabled {background:#edf2fa;color:#60799f;border-color:#dae3f1;}
+#root .campus-text-button,#root .campus-section-title > button,#root .event-details-button {color:#245cc9;}
+#root .event-search {border-radius:10px;border-color:#ccdaed;}
+#root .event-search input {color:#213b62;}
+#root .event-search > span:first-child {color:#4b78ca;}
+#root .event-filters button {border-radius:9px;border-color:#d3deee;color:#526c91;}
+#root .event-filters button.selected {background:#173b78;border-color:#173b78;color:#fff;}
+#root .event-results,#root .event-results small,#root .event-card-body > small {color:#5d7697;}
+#root .event-art {background:linear-gradient(125deg,#c6dcff,#eaf2ff);color:#2b5da8;min-height:205px;}
+#root .event-art.peach {background:linear-gradient(125deg,#c8e7e4,#eef8f5);color:#296d72;}
+#root .event-art::after {border-radius:13px;transform:rotate(25deg);top:-80px;right:-18px;width:240px;height:320px;border-color:#ffffffa0;box-shadow:0 0 0 30px #ffffff26,0 0 0 60px #ffffff15;}
+#root .event-category {color:#355d8e;border-radius:7px;}
+#root .event-art-symbol {font-family:inherit;font-size:102px;font-weight:800;letter-spacing:-6px;top:20px;right:38px;transform:rotate(0);opacity:.3;}
+#root .event-art-label {color:#41668f;letter-spacing:1px;}
+#root .event-card h2 {font-family:inherit;color:#17365b;font-size:25px;line-height:1.3;font-weight:700;letter-spacing:-.7px;}
+#root .event-card-body > p,#root .event-description p,#root .event-description small {color:#596f8e;}
+#root .event-card-actions,#root .event-description,#root .registration-row {border-color:#e0e8f4;}
+#root .campus-date {background:#e4efff;color:#3566b7;border-radius:9px;}
+#root .campus-date strong {font-family:inherit;font-size:25px;font-weight:700;}
+#root .registration-info > small {color:#667d9d;}
+#root .registration-info h3 {color:#1e385d;}
+#root .registration-info p,#root .campus-disclaimer {color:#5b7190;}
+#root .registration-actions .registration-ticket {background:#edf4ff;color:#245cc9;border-color:#ceddf7;border-radius:8px;}
+#root .identity-banner {background:linear-gradient(115deg,#17438c,#3478d7);color:#e0edff;}
+#root .identity-banner > span:last-child {font-family:inherit;font-size:64px;font-weight:800;color:#ffffff44;letter-spacing:-6px;}
+#root .profile-avatar {background:#deebff;color:#2856a1;}
+#root .identity-name h2 {color:#17365b;font-size:29px;}
+#root .student-label,#root .profile-details dt {color:#6d82a0;}
+#root .identity-name p,#root .profile-bio,#root .profile-details dd {color:#516b8e;}
+#root .profile-page .edit-profile,#root .profile-form-actions button {border-radius:9px;color:#2d61b4;border-color:#cbdcf3;}
+#root .management-banner {background:#e8f0fc;color:#3e6397;border-color:#d2e0f5;border-radius:9px;}
+#root .management-form label,#root .profile-form label {color:#526d93;}
+#root .management-form input,#root .management-form select,#root .management-form textarea,#root .profile-form input,#root .profile-form select,#root .profile-form textarea {background:#fbfdff;color:#24456e;border-color:#cfddf0;border-radius:8px;}
+#root .management-event-list button,#root .checkout-actions > button:not(.campus-primary) {background:#f2f7ff;border-color:#d2e0f5;color:#3c6aac;border-radius:8px;}
+#root .management-event-list h3 {color:#1e3b65;}
+#root .management-event-list small,#root .management-event-list p,#root .management-form p,#root .profile-hint,#root .checkout-card > p {color:#607897;}
+#root .checkout-total dd {color:#245ee5;}
+#root .campus-footer,#root .profile-footer {border-color:#d6e2f2;color:#6a7d98;}
+#root .story-panel {background:linear-gradient(145deg,#0e2a62,#174cab);}
+#root .story-panel::after {border-radius:25px;transform:rotate(27deg);width:400px;height:650px;bottom:-200px;right:-170px;border-color:#bad5ff35;box-shadow:0 0 0 70px #d3e5ff08,0 0 0 140px #d3e5ff05;}
+#root .brand {font-size:27px;letter-spacing:-1.1px;font-weight:800;}
+#root .brand-mark {background:#d7e6ff;color:#1e53a2;border-radius:8px;}
+#root .login-page h1 {font-family:inherit;font-size:clamp(42px,4.7vw,65px);font-weight:700;letter-spacing:-2.4px;line-height:1.08;color:#fff;}
+#root .story-content > p,#root .preview-details p,#root .story-footer {color:#ccddf7;}
+#root .eyebrow,#root .sample-tag {color:#b5d3ff;}
+#root .event-preview {border-color:#a5c5f34d;border-radius:13px;background:#ffffff08;}
+#root .poster-art {background:linear-gradient(135deg,#a8cbff,#d4e6ff);border-radius:9px;color:#174b92;}
+#root .orbit {display:none;}
+#root .art-star {font-family:inherit;top:23px;left:18px;font-size:65px;font-weight:800;letter-spacing:-5px;opacity:.5;}
+#root .art-label {font-size:12px;}
+#root .preview-details h2 {font-family:inherit;font-size:20px;font-weight:700;color:#fff;line-height:1.4;letter-spacing:-.6px;}
+#root .form-panel {background:#f5f8fe;}
+#root .login-box > h2 {font-family:inherit;font-size:43px;font-weight:700;letter-spacing:-1.5px;color:#18375f;}
+#root .login-box .form-intro,#root .login-box .field-hint,#root .form-footer {color:#607795;}
+#root .login-page label {color:#3a567e;}
+#root .login-page input {border-color:#cbdcf1;color:#20436f;border-radius:9px;}
+#root .login-page .sign-in {background:#245ee5;border-color:#245ee5;border-radius:9px;}
+#root .login-page .show-password,#root .api-switch {color:#2c62b4;}
+#root .demo-badge {color:#607b9e;}
+#root .ticket-header {background:#173b78;color:#e1edff;}
+#root .entry-ticket {border-color:#cbdcf1;border-radius:14px;}
+#root .ticket-information h2 {font-family:inherit;font-size:31px;color:#193d68;font-weight:700;}
+#root .ticket-information > small,#root .ticket-information dt,#root .ticket-code span,#root .entry-ticket footer,#root .ticket-qr small {color:#627d9f;}
+#root .ticket-information dd,#root .ticket-disclaimer,#root .ticket-qr p {color:#4d6a90;}
+#root .ticket-code {background:#f1f6ff;border-color:#c9d9ef;}
+#root .ticket-code code {color:#355c90;}
+#root .ticket-controls button,#root .ticket-controls a,#root .scanner-next {border-radius:9px;color:#3868ac;border-color:#cbdcf3;}
+#root .ticket-controls .campus-primary {color:#fff;background:#245ee5;}
+#root .scanner-grid h2,#root .scanner-result h3 {font-family:inherit;font-weight:700;color:#1d3c67;}
+#root .scanner-grid h2 {font-size:24px;}
+#root .scanner-result h3 {font-size:29px;}
+#root .scanner-result h4 {color:#315681;}
+#root .scanner-result p,#root .scanner-note {color:#5b7395;}
+#root .scanner-upload,#root .scanner-camera {border-color:#cbdcf1;background:#f3f7fe;color:#406da8;}
+@media(max-width:700px) {#root .login-page h1 {font-size:43px;}#root .story-panel {padding:29px 7%;}#root .login-box > h2 {font-size:38px;}}
+@media(max-width:520px) {#root .workspace-nav .workspace-brand {font-size:24px;}#root .campus-heading h1,#root .profile-heading h1,#root .management-content h1 {font-size:35px;letter-spacing:-1.3px;}#root .student-welcome {padding:28px 23px;min-height:300px;border-radius:13px;}#root .student-welcome h2 {font-size:34px;letter-spacing:-1.3px;}#root .event-card h2 {font-size:25px;}#root .identity-name h2 {font-size:27px;}}
+#root .campus-heading h1,#root .profile-heading h1,#root .management-content h1,#root .notification-center #notification-list h2 {font-family:'Plus Jakarta Sans',Arial,sans-serif !important;font-weight:700;}
+#root .art-star {top:10px;left:18px;font-size:55px;line-height:1.1;}
+#root .art-label {bottom:12px;font-size:10px;line-height:1.2;}
+#root .event-art .campus-date {color:#3566b7;}
+/* Large-reading edition: supporting text is deliberately 18-20px. */
+#root {font-size:20px;line-height:1.6;}
+#root p,#root dd,#root .event-description p,#root .registration-info p,#root .profile-bio {font-size:20px !important;line-height:1.65;}
+#root small,#root label,#root dt,#root footer,#root .campus-footer,#root .profile-footer,#root .form-footer,#root .story-footer,#root .field-hint,#root .campus-disclaimer,#root .management-note,#root .profile-hint,#root .ticket-disclaimer,#root .scanner-note,#root .demo-badge,#root .form-intro {font-size:18px !important;line-height:1.6;}
+#root button,#root input,#root select,#root textarea,#root a,#root .scanner-upload {font-size:18px !important;line-height:1.5;}
+#root button,#root a.registration-ticket,#root .scanner-upload {min-height:48px;white-space:normal;}
+#root input,#root select {min-height:54px;}
+#root .workspace-nav .workspace-links button {font-size:18px !important;padding:12px 16px;}
+#root .workspace-nav {gap:20px;flex-wrap:wrap;}
+#root .workspace-subtitle,#root .registration-status,#root .event-results,#root .event-results small,#root .event-category,#root .event-filters button,#root .student-stats span,#root .student-stats p,#root .management-label,#root .profile-eyebrow,#root .form-eyebrow,#root .eyebrow,#root .student-label,#root .sample-tag {font-size:18px !important;line-height:1.6;}
+#root .registration-info h3,#root .management-event-list h3 {font-size:23px;line-height:1.4;}
+#root .campus-section-title h2,#root .management-grid h2,#root .card-title > h2,#root .checkout-card h2 {font-size:29px;}
+#root .event-card h2 {font-size:29px;line-height:1.35;}
+#root .campus-date {min-width:66px;min-height:78px;padding:9px;}
+#root .campus-date small {font-size:16px !important;}
+#root .registration-row {gap:20px;padding-top:25px;padding-bottom:25px;}
+#root .registration-actions {gap:12px;}
+#root .registration-actions button {padding:10px 15px;}
+#root .event-card-body {padding:28px;}
+#root .student-stats section {padding:25px;}
+#root .student-stats strong {font-size:44px;}
+#root .login-box {max-width:470px;width:100%;}
+#root .login-page label {font-size:20px !important;}
+#root .login-page input {font-size:20px !important;min-height:60px;}
+#root .login-page .show-password {font-size:16px !important;}
+#root .login-page .art-label {display:none;}
+#root .login-page .preview-details h2 {font-size:25px;}
+#root .login-page .event-preview {min-height:200px;}
+#root .ticket-code code {font-size:18px;}
+#root .event-art-label {font-size:18px;line-height:1.3;}
+@media(max-width:700px) {
+#root .workspace-nav {padding:20px 18px;gap:16px;}
+#root .workspace-nav .workspace-links {gap:8px;}
+#root .workspace-nav .workspace-links button {padding:10px 12px;}
+#root .campus-content,#root .profile-content,#root .management-content {padding-left:18px;padding-right:18px;}
+#root .registration-row {flex-wrap:wrap;}
+#root .registration-info {flex:1;min-width:155px;}
+#root .registration-actions {width:100%;align-items:stretch;}
+#root .registration-actions button {width:100%;}
+#root .campus-section-title {flex-wrap:wrap;gap:12px;}
+#root .student-stats section {min-width:0;}
+#root .event-card-body {padding:24px;}
+#root .event-card-actions {gap:12px;flex-wrap:wrap;}
+#root .event-card-actions button {flex:1;}
+#root .login-box > h2 {font-size:38px;}
+#root .login-page .story-panel {min-height:0;}
+#root .event-search {padding:14px;}
+}
+#root .campus-primary,#root .profile-form-actions button[type='submit'],#root .campus-text-button,#root .campus-section-title > button,#root .event-details-button {font-size:18px !important;line-height:1.5;}
+#root .scanner-result .scanner-student-id {font-size:18px !important;overflow-wrap:anywhere;}
+#root .workspace-role,#root .registration-actions > span,#root .entry-badge,#root .ticket-header span:last-child {font-size:18px !important;line-height:1.5;}
+#root .workspace-nav-inner {flex-wrap:wrap;min-width:0;gap:14px;}
+#root .workspace-nav-inner nav {max-width:100%;min-width:0;}
+@media(max-width:520px) {#root .workspace-role {width:100%;}#root .workspace-nav-inner {width:100%;}#root .workspace-nav-inner nav {width:100%;}}
+@media(max-width:520px) {#root .workspace-nav-inner {grid-template-columns:minmax(0,1fr);padding-left:0;padding-right:0;}#root .workspace-nav-inner nav {grid-column:1;}}
+#root .registration-info h3 {font-size:25px;line-height:1.4;}
+#root .registration-info p {font-size:21px !important;}
+#root .registration-info > small,#root .registration-actions > span {font-size:19px !important;}
+#root .registration-actions button {font-size:20px !important;}
+#root .messages-grid {display:grid;grid-template-columns:320px minmax(0,1fr);gap:24px;margin-top:26px;align-items:start;}
+#root .messages-grid.student-inbox {grid-template-columns:minmax(0,1fr);max-width:900px;}
+#root .messages-page h2 {font-size:28px;line-height:1.35;color:#19385e;}
+#root .message-threads button {width:100%;display:grid;gap:8px;text-align:left;background:#f6f9ff;border:1px solid #d5e1f2;border-radius:10px;padding:16px;margin-top:12px;color:#294b79;overflow-wrap:anywhere;}
+#root .message-threads button[aria-pressed=true] {background:#e5eeff;border-color:#245ee5;}
+#root .message-threads button span {font-size:18px;line-height:1.5;}
+#root .message-history {margin:25px 0;display:grid;gap:18px;}
+#root .message-bubble {padding:20px;border:1px solid #d9e4f4;border-radius:12px;background:#f7f9fd;overflow-wrap:anywhere;min-width:0;}
+#root .message-bubble.own {background:#eaf1ff;border-color:#c7d8f7;}
+#root .message-bubble header {display:grid;gap:8px;color:#25496f;}
+#root .message-bubble time {font-size:18px;color:#516d8f;}
+#root .message-bubble p {white-space:pre-wrap;margin-bottom:0;}
+#root .message-conversation {min-width:0;}
+#root .message-conversation form {border-top:1px solid #d8e3f2;padding-top:24px;}
+#root .message-conversation textarea {display:block;width:100%;min-width:0;padding:16px;border:1px solid #bbcee8;border-radius:10px;font-family:inherit;color:#1f416a;margin-top:12px;resize:vertical;background:#fff;}
+#root .message-student-code {overflow-wrap:anywhere;}
+@media(max-width:850px) {#root .messages-grid {grid-template-columns:minmax(0,1fr);}#root .message-threads {max-height:460px;overflow-y:auto;}}
+@media print {
+ body,#root,#root .signed-workspace,#root .ticket-page {background:white !important;}
+ #root .entry-ticket {break-inside:avoid;width:100%;max-width:none;}
+ #root .entry-ticket p,#root .entry-ticket dd {font-size:15px !important;line-height:1.5;}
+ #root .entry-ticket small,#root .entry-ticket dt,#root .entry-ticket footer,#root .ticket-header span:last-child {font-size:13px !important;line-height:1.5;}
+ #root .ticket-information h2 {font-size:25px;}
+ #root .ticket-information dl {gap:16px;}
+ #root .ticket-body {padding:24px;}
+ #root .ticket-qr img {width:230px;height:230px;}
+ #root .ticket-code {padding:15px 24px;}
+ #root .ticket-code code {font-size:12px;line-height:1.5;}
+ #root .entry-ticket footer {padding:15px 24px;}
+}
+
+#root .test-payment-qr {display:flex;flex-direction:column;align-items:center;max-width:380px;margin:24px auto;padding:18px;border:1px solid #d6e2f2;border-radius:13px;background:#fff;gap:12px;}
+#root .test-payment-qr img {display:block;width:100%;max-width:300px;height:auto;}
+#root .test-payment-qr details {width:100%;color:#45658e;}
+#root .test-payment-qr summary {cursor:pointer;font-size:18px;line-height:1.6;}
+#root .test-payment-reference {overflow-wrap:anywhere;}
+/* Laptop calibration: preserve the large touch layout on narrow screens. */
+@media screen and (min-width:851px) {
+ #root {font-size:15px;line-height:1.5;}
+ #root p,#root dd,#root .event-description p,#root .registration-info p,#root .profile-bio {font-size:15px !important;line-height:1.6;}
+ #root small,#root label,#root dt,#root footer,#root .campus-footer,#root .profile-footer,#root .form-footer,#root .story-footer,#root .field-hint,#root .campus-disclaimer,#root .management-note,#root .profile-hint,#root .ticket-disclaimer,#root .scanner-note,#root .demo-badge,#root .form-intro {font-size:13px !important;line-height:1.5;}
+ #root button,#root input,#root select,#root textarea,#root a,#root .scanner-upload,#root .campus-primary,#root .profile-form-actions button[type='submit'],#root .campus-text-button,#root .campus-section-title > button,#root .event-details-button {font-size:14px !important;line-height:1.5;}
+ #root button {min-height:38px;}
+ #root input,#root select {min-height:42px;}
+ #root .workspace-nav-inner {min-height:68px;gap:16px;}
+ #root .workspace-nav .workspace-brand {font-size:23px;}
+ #root .workspace-role,#root .registration-actions > span,#root .entry-badge,#root .ticket-header span:last-child {font-size:13px !important;}
+ #root .workspace-nav nav button {padding:9px 12px;font-size:14px !important;}
+ #root .workspace-subtitle,#root .registration-status,#root .event-results,#root .event-results small,#root .event-category,#root .event-filters button,#root .student-stats span,#root .student-stats p,#root .management-label,#root .profile-eyebrow,#root .form-eyebrow,#root .eyebrow,#root .student-label,#root .sample-tag {font-size:13px !important;line-height:1.5;}
+ #root .campus-content,#root .profile-content,#root .management-content {padding-top:26px;}
+ #root .campus-heading h1,#root .profile-heading h1,#root .management-content h1 {font-size:36px;line-height:1.15;letter-spacing:-1.2px;}
+ #root .student-welcome {padding:28px 32px;min-height:230px;}
+ #root .student-welcome h2 {font-size:36px;}
+ #root .campus-section-title h2,#root .management-grid h2,#root .card-title > h2,#root .checkout-card h2,#root .messages-page h2 {font-size:23px;}
+ #root .event-card h2 {font-size:23px;}
+ #root .registration-info h3 {font-size:18px;}
+ #root .registration-info > small {font-size:14px !important;}
+ #root .registration-info p {font-size:15px !important;}
+ #root .registration-actions button {font-size:14px !important;padding:8px 12px;}
+ #root .registration-row {padding-top:18px;padding-bottom:18px;gap:16px;}
+ #root .student-stats section {padding:20px;}
+ #root .student-stats strong {font-size:34px;}
+ #root .campus-date {min-width:52px;min-height:63px;}
+ #root .campus-date small {font-size:12px !important;}
+ #root .message-bubble time,#root .message-threads button span,#root .test-payment-qr summary {font-size:13px;}
+ #root .scanner-result .scanner-student-id {font-size:13px !important;}
+ #root .story-panel,#root .form-panel {padding:25px 10%;}
+ #root .story-content {padding:25px 0;}
+ #root .brand {font-size:25px;}
+ #root .login-page h1 {font-size:48px;letter-spacing:-1.8px;line-height:1.1;margin-top:18px;}
+ #root .story-content > p {margin-top:18px;max-width:390px;}
+ #root .event-preview {margin-top:24px;padding:12px;gap:15px;min-height:140px;}
+ #root .poster-art {min-width:90px;width:90px;min-height:120px;}
+ #root .login-page .preview-details h2 {font-size:20px;}
+ #root .preview-details p {font-size:13px !important;}
+ #root .login-box {max-width:420px;padding:20px 0;}
+ #root .login-box > h2 {font-size:34px;margin-top:10px;letter-spacing:-1px;}
+ #root .login-box .form-intro {font-size:15px !important;margin-top:8px;}
+ #root .login-page label {font-size:14px !important;margin-bottom:6px;}
+ #root .login-page input {min-height:44px;height:44px;font-size:15px !important;}
+ #root .login-page .show-password {font-size:13px !important;height:44px;min-height:44px;}
+ #root .login-box .field-hint {font-size:12px !important;line-height:1.5;margin-top:8px;}
+ #root .login-page .sign-in {margin-top:18px;padding:11px 16px;min-height:44px;}
+ #root .api-switch {margin:14px 0;}
+ #root .login-box form {margin-top:20px;}
+}
